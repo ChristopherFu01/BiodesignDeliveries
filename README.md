@@ -266,7 +266,7 @@ BiodesignDeliveries/
 |   └── SQL Query for OB Delivery.png    # Picture of query for assembling dataset in Azure Data Studio
 |
 ├── Patient Flow Plan Presentation.pdf   # PDF of presentation shown In-Person MSDSB/Biodesign Event at UCLA
-└──  README.md                           # Project documentation
+└── README.md                            # Project documentation
 ```
 
 ## References
