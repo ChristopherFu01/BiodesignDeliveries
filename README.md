@@ -135,7 +135,7 @@ The overall utility of a capacity model lies in its ability to assist in operati
 ## Dependencies
 
 ## Project Structure
-
+```plaintext
 BiodesignDeliveries/
 |
 ├── Delivery.pdf # pdf of Python code focused on EDA and model building in the delivery ward
@@ -145,7 +145,7 @@ BiodesignDeliveries/
 ├──  README.md  # Project documentation
 ├── SQL Datatable.pdf # pdf of the dataset representation in Azure Data Studio
 └── SQL Query for OB Delivery.png # picture of query for assembling dataset in Azure Data Studio
-
+```
 ## References
 
 1. Division of Reproductive Health, National Center for Chronic Disease Prevention and Health Promotion, CDC. Achievements in Public Health, 1900-1999: Healthier Mothers and Babies—United States, 1999 October 1 [Internet]. [cited 2024 Dec 2]. Available from: https://www.cdc.gov/mmwr/preview/mmwrhtml/mm4838a2.htm
