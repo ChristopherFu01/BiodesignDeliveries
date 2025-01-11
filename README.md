@@ -244,17 +244,29 @@ If you are curious to view my team's report in a more visual and succint manner,
 - xgboost
 
 ## Project Structure
+
 ```plaintext
 BiodesignDeliveries/
 |
-├── images                               # folder containing all relevant images of EDA and model results
-├── Delivery.pdf                         # pdf of Python code focused on EDA and model building in the delivery ward
-├── LSTM.pdf                             # pdf of Python code focused on LSTM model for weekly bed capacity
-├── OBGYN.pdf                            # pdf of Python code focused on EDA and model building for Ronald Reagan's OB/GYN department
-├── Patient Flow Plan Presentation.pdf   # pdf of presentation shown In-Person MSDSB/Biodesign Event at UCLA
-├── README.md                           # Project documentation
-└── SQL Query for OB Delivery.png        # picture of query for assembling dataset in Azure Data Studio
+├── images/                              # Folder containing all relevant images of EDA and model results
+|   ├── Avg Bed Usage by Dept.png        # Bar Plot of Average Bed Usage by Department of Ronald Reagan Medical Center for OB/GYN Delivieres
+|   ├── Dataset.png                      # Jupyter Notebook Python Pandas representation of the dataset
+|   ├── Deliveries Day of Week.png       # Deliveries separated by the day of the week
+|   ├── Deliveries Hour of Day.png       # Deliveries sorted by hour of the day
+|   ├── Descriptive Statistics.png       # Descriptive Statistics of the variables of interest for OB/GYN Deliveries
+|   ├── Weekly Bed Usage Line Plot.png   # Line plot of the weekly bed usage separated by year (2022-2024)
+|   └──  Weekly OB Capacity.png           # Line plot of the weekly bed capacity, with tick marks denoting the week of the year
+|
+|   code/                                # Folder containing all code related files
+|   ├── Delivery.pdf                         # PDF of Python code focused on EDA and model building in the delivery ward
+|   ├── LSTM.pdf                             # PDF of Python code focused on LSTM model for weekly bed capacity
+|   ├── OBGYN.pdf                            # PDF of Python code focused on EDA and model building for Ronald Reagan's OB/GYN department
+|   └── SQL Query for OB Delivery.png        # Picture of query for assembling dataset in Azure Data Studio
+|
+├── Patient Flow Plan Presentation.pdf   # PDF of presentation shown In-Person MSDSB/Biodesign Event at UCLA
+└──  README.md                           # Project documentation
 ```
+
 ## References
 
 1. Division of Reproductive Health, National Center for Chronic Disease Prevention and Health Promotion, CDC. Achievements in Public Health, 1900-1999: Healthier Mothers and Babies—United States, 1999 October 1 [Internet]. [cited 2024 Dec 2]. Available from: https://www.cdc.gov/mmwr/preview/mmwrhtml/mm4838a2.htm
