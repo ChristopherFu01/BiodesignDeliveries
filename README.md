@@ -135,8 +135,7 @@ Key Objectives:
 
 Data for this study were extracted from the Deidentified Data Repository (DDR) within UCLA Health’s Electronic Health Record (EHR). The data warehouse schema consists of ‘fact’ tables containing transactional data (encounters, deliveries, procedures, etc.) and ‘dim’ tables containing descriptive attributes (departments, dates, categorical lookups, etc.). All protected health information was removed prior to analysis, and the study was conducted in accordance with UCLA Office of Health Information & Analytics (OHIA) data governance policies. The study pool included all deliveries in the Ronald Reagan Medical Center’s primary delivery ward (‘RR 5DR’) from January 1st, 2022 to September 1st, 2024. 
 
-
-Fig. 1: Data representation in Python
+![Fig. 1: Data Representation in Jupyter Notebook](Dataset.png)
 
 We developed a comprehensive SQL query in Azure Data Studio, integrating multiple EHR tables to create an analytical dataset. Key data elements were sourced from:
 
@@ -210,6 +209,7 @@ The overall utility of a capacity model lies in its ability to assist in operati
 ```plaintext
 BiodesignDeliveries/
 |
+├── Dataset.png                          # picture of the OB/GYN delivery dataset used for analysis
 ├── Delivery.pdf                         # pdf of Python code focused on EDA and model building in the delivery ward
 ├── LSTM.pdf                             # pdf of Python code focused on LSTM model for weekly bed capacity
 ├── OBGYN.pdf                            # pdf of Python code focused on EDA and model building for Ronald Reagan's OB/GYN department
