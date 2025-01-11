@@ -206,7 +206,6 @@ BiodesignDeliveries/
 ├── OBGYN.pdf                            # pdf of Python code focused on EDA and model building for Ronald Reagan's OB/GYN department
 ├── Patient Flow Plan Presentation.pdf   # pdf of presentation shown In-Person MSDSB/Biodesign Event at UCLA
 ├──  README.md                           # Project documentation
-├── SQL Datatable.pdf                    # pdf of the dataset representation in Azure Data Studio
 └── SQL Query for OB Delivery.png        # picture of query for assembling dataset in Azure Data Studio
 ```
 ## References
