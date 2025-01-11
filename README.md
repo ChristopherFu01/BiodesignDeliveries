@@ -23,8 +23,9 @@
    - [Limitations](#limitations)  
    - [Future Work](#future-work)  
 8. [Dependencies](#dependencies)  
-9. [Project Structure](#project-structure)  
-10. [Contact Information](#contact-information)  
+9. [Project Structure](#project-structure)
+10. [References](#references)
+11. [Contact Information](#contact-information)  
 
 ## Project Overview
 
@@ -103,6 +104,10 @@ project-name/
 |
 ├── 
 └── README.md  # Project documentation
+
+## References
+
+
 
 ## Contact Information
 
