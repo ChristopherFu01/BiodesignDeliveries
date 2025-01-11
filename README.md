@@ -259,7 +259,7 @@ BiodesignDeliveries/
 |   ├── Weekly Bed Usage Line Plot.png   # Line plot of the weekly bed usage separated by year (2022-2024)
 |   └──  Weekly OB Capacity.png          # Line plot of the weekly bed capacity, with tick marks denoting the week of the year
 |
-|   code/                                # Folder containing all code related files
+├── code/                                # Folder containing all code related files
 |   ├── Delivery.pdf                     # PDF of Python code focused on EDA and model building in the delivery ward
 |   ├── LSTM.pdf                         # PDF of Python code focused on LSTM model for weekly bed capacity
 |   ├── OBGYN.pdf                        # PDF of Python code focused on EDA and model building for Ronald Reagan's OB/GYN department
