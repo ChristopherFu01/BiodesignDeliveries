@@ -88,6 +88,8 @@ The dataset contains anonymized records related to weekly hospital admissions an
 
 Due to privacy constraints, there will not be any photos shown of the data as it appears in Azure Data Studio. However, to describe what it may appear to look like in the software, the DDR comprises of many different sets of tables, usually with the prefix CDM (Clinical Data Management) or DIM (Dimensional Table). The majority of the columns would comprise of an identifier such as the Patient ID or Encounter/Event ID, temporal data including the time a patient was admitted and discharged from the hospital, and unique information pertaining to the subject of that table (e.g. OB/GYN table would contain information about bed logistics such as bed name and group).
 
+If you are curious to see what the SQL query looks like when querying the dataset for analysis, see the image of the code [here](code/SQL%20Query%20for%20OB%20Delivery.png).
+
 ### Feature Descriptions
 
 **Independent Variables**
@@ -188,9 +190,9 @@ There were 7,386 deliveries in our study cohort across five departments in the R
 The dataset used for modeling spanned a period of approximately 2 years, with a test period of 9 months. During EDA, trends and seasonality in patient admissions were observed, highlighting the suitability of an LSTM model for capturing temporal dependencies and patterns. The capacity data were normalized to a range of [0, 1] to enhance model performance and ensure stable training.
 
 For additional EDA findings, refer to the jupyter notebooks in the github repository:
-- [Delivery](Delivery.pdf)
-- [LSTM](LSTM.pdf)
-- [OB/GYN](OBGYN.pdf)
+- [Delivery](code/Delivery.pdf)
+- [LSTM](code/LSTM.pdf)
+- [OB/GYN](code/OBGYN.pdf)
 
 ### Model Development
 
@@ -255,13 +257,13 @@ BiodesignDeliveries/
 |   ├── Deliveries Hour of Day.png       # Deliveries sorted by hour of the day
 |   ├── Descriptive Statistics.png       # Descriptive Statistics of the variables of interest for OB/GYN Deliveries
 |   ├── Weekly Bed Usage Line Plot.png   # Line plot of the weekly bed usage separated by year (2022-2024)
-|   └──  Weekly OB Capacity.png           # Line plot of the weekly bed capacity, with tick marks denoting the week of the year
+|   └──  Weekly OB Capacity.png          # Line plot of the weekly bed capacity, with tick marks denoting the week of the year
 |
 |   code/                                # Folder containing all code related files
-|   ├── Delivery.pdf                         # PDF of Python code focused on EDA and model building in the delivery ward
-|   ├── LSTM.pdf                             # PDF of Python code focused on LSTM model for weekly bed capacity
-|   ├── OBGYN.pdf                            # PDF of Python code focused on EDA and model building for Ronald Reagan's OB/GYN department
-|   └── SQL Query for OB Delivery.png        # Picture of query for assembling dataset in Azure Data Studio
+|   ├── Delivery.pdf                     # PDF of Python code focused on EDA and model building in the delivery ward
+|   ├── LSTM.pdf                         # PDF of Python code focused on LSTM model for weekly bed capacity
+|   ├── OBGYN.pdf                        # PDF of Python code focused on EDA and model building for Ronald Reagan's OB/GYN department
+|   └── SQL Query for OB Delivery.png    # Picture of query for assembling dataset in Azure Data Studio
 |
 ├── Patient Flow Plan Presentation.pdf   # PDF of presentation shown In-Person MSDSB/Biodesign Event at UCLA
 └──  README.md                           # Project documentation
