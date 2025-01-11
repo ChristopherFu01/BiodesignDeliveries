@@ -227,6 +227,10 @@ The overall utility of a capacity model lies in its ability to assist in operati
 
 - **Scope Changes**: Due to time constraints and problem restructuring, there were revisions to our project that resulted in some EDA and model building being excluded. Most notably, check out the OBGYN.pdf in the project folder to see insights that were not included in the final report.
 
+### Miscellaneous 
+
+If you are curious to view my team's report in a more visual and succint manner, check out the presentation we delivered together at the In-Person MSDSB/Biodesign Event at UCLA! [Presentation](Patient%20Flow%20Plan%20Presentation.pdf)
+
 ## Dependencies
 
 - numpy
