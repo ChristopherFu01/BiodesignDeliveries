@@ -197,6 +197,15 @@ The overall utility of a capacity model lies in its ability to assist in operati
 
 ## Dependencies
 
+- numpy
+- pandas
+- matplotlib
+- seaborn
+- datetime
+- statsmodels
+- sklearn
+- xgboost
+
 ## Project Structure
 ```plaintext
 BiodesignDeliveries/
