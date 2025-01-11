@@ -134,6 +134,7 @@ Key Objectives:
 Data for this study were extracted from the Deidentified Data Repository (DDR) within UCLA Health’s Electronic Health Record (EHR). The data warehouse schema consists of ‘fact’ tables containing transactional data (encounters, deliveries, procedures, etc.) and ‘dim’ tables containing descriptive attributes (departments, dates, categorical lookups, etc.). All protected health information was removed prior to analysis, and the study was conducted in accordance with UCLA Office of Health Information & Analytics (OHIA) data governance policies. The study pool included all deliveries in the Ronald Reagan Medical Center’s primary delivery ward (‘RR 5DR’) from January 1st, 2022 to September 1st, 2024. 
 
 ![Fig.1](images/Dataset.png)
+
 **Fig.1: Data Representation in Jupyter Notebook**
 
 We developed a comprehensive SQL query in Azure Data Studio, integrating multiple EHR tables to create an analytical dataset. Key data elements were sourced from:
@@ -158,22 +159,28 @@ The resulting dataset included timestamps for patient flow (admission, delivery,
 There were 7,386 deliveries in our study cohort across five departments in the Ronald Reagan Medical Center (‘RR 5DR’, ‘RR PERIOPERATIVE AREA’, ‘RR 5FDU IOF’, ‘RR 5EOB’, ‘RR 7ICU’). Table 2 illustrates descriptive statistics for four key capacity metrics: delivery volume, length of stay, occupancy, and labor duration. 
 
 ![Table 1](images/Descriptive%20Statistics.png)
-Table 1: Descriptive Statistics
+
+**Table 1: Descriptive Statistics**
 
 ![Fig.2](images/Avg%20Bed%20Usage%20by%20Dept.png)
+
 **Fig.2: Average Bed Usage by Department within Ronald Reagan Obstetrics.** Figure was created by running summary statistics, specifically the mean of ‘BedInCensus’ grouped by department. Departments RR 5FDU and RR PERIOPERATIVE AREA were at maximum average bed usage, whereas departments RR 5EOB and RR 5DR were between 80% and 100% average bed usage. Knowing which departments are at full capacity can provide insight for operations to redirect resources (i.e. staff, beds) to accommodate high usage in those areas.
 
 ![Fig.3](images/Weekly%20Bed%20Usage%20Line%20Plot.png)
+
 **Fig 3: Weekly Trends in Bed Usage in Ronald Reagan Obstetrics Department.** Total bed usage across all years observed hundreds of beds being used each week. A smaller data frame was created by taking the sum of ‘BedInCensus’, grouped by each year and week. Year 2024 observed a downward trend compared to other years, with bed usage peaking around weeks 8-10; Years 2022 and 2024 had fluctuating trends, peaking around weeks 45-50. The atypical trend in 2024 could be attributed to recent data lag, unless this trend accurately reflects activity for that specific year, which would require further investigation into other factors contributing to unusual patterns in bed usage.
 
 
 ![Fig.4](images/Deliveries%20Hour%20of%20Day.png)
+
 **Fig 4: Hourly Number of Deliveries in Ronald Reagan Obstetrics Department.** The total number of deliveries during a given hour across 2022-2024 data. Hours 15-20 have a higher than average total delivery count. The hourly delivery distribution appears left skewed, with most deliveries occurring in the evening compared to midnight and morning hours.
 
 ![Fig.5](images/Deliveries%20Day%20of%20Week.png)
+
 **Fig 5: Average Deliveries per Day in Ronald Reagan Delivery Units.** The average number of deliveries per day of the week across the period of study. The majority of deliveries (93%) occurred in ‘RR 5DR.’ Average deliveries peaked for Tuesday, Wednesday, and Saturday, as well as dipped the lowest on Friday, although average deliveries across the week seem relatively comparable.
 
 ![Fig.6](images/Weekly%20OB%20Capacity.png)
+
 **Fig.6: Weekly capacity readout of Ronald Reagan Obstetrics Department.** Time period for analysis is defined from January 3, 2022 to September 1, 2024. Capacity of the obstetrics unit is defined as the median number of patients occupying beds per day for a given week. Weekly capacity ranges from 1-90 patients per day.
 
 
