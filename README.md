@@ -133,7 +133,7 @@ Key Objectives:
 
 Data for this study were extracted from the Deidentified Data Repository (DDR) within UCLA Health’s Electronic Health Record (EHR). The data warehouse schema consists of ‘fact’ tables containing transactional data (encounters, deliveries, procedures, etc.) and ‘dim’ tables containing descriptive attributes (departments, dates, categorical lookups, etc.). All protected health information was removed prior to analysis, and the study was conducted in accordance with UCLA Office of Health Information & Analytics (OHIA) data governance policies. The study pool included all deliveries in the Ronald Reagan Medical Center’s primary delivery ward (‘RR 5DR’) from January 1st, 2022 to September 1st, 2024. 
 
-![Fig.1](Dataset.png)
+![Fig.1](images/Dataset.png)
 **Fig.1: Data Representation in Jupyter Notebook**
 
 We developed a comprehensive SQL query in Azure Data Studio, integrating multiple EHR tables to create an analytical dataset. Key data elements were sourced from:
@@ -157,10 +157,10 @@ The resulting dataset included timestamps for patient flow (admission, delivery,
 
 There were 7,386 deliveries in our study cohort across five departments in the Ronald Reagan Medical Center (‘RR 5DR’, ‘RR PERIOPERATIVE AREA’, ‘RR 5FDU IOF’, ‘RR 5EOB’, ‘RR 7ICU’). Table 2 illustrates descriptive statistics for four key capacity metrics: delivery volume, length of stay, occupancy, and labor duration. 
 
-![Table 1]()
+![Table 1](images/Descriptive Statistics.png)
 Table 1: Descriptive Statistics
 
-![Fig.2]()
+![Fig.2](images/)
 **Fig.2: Average Bed Usage by Department within Ronald Reagan Obstetrics.** Figure was created by running summary statistics, specifically the mean of ‘BedInCensus’ grouped by department. Departments RR 5FDU and RR PERIOPERATIVE AREA were at maximum average bed usage, whereas departments RR 5EOB and RR 5DR were between 80% and 100% average bed usage. Knowing which departments are at full capacity can provide insight for operations to redirect resources (i.e. staff, beds) to accommodate high usage in those areas.
 
 ![Fig.3]()
@@ -235,7 +235,7 @@ The overall utility of a capacity model lies in its ability to assist in operati
 ```plaintext
 BiodesignDeliveries/
 |
-├── Dataset.png                          # picture of the OB/GYN delivery dataset used for analysis
+├── images                               # folder containing all relevant images of EDA and model results
 ├── Delivery.pdf                         # pdf of Python code focused on EDA and model building in the delivery ward
 ├── LSTM.pdf                             # pdf of Python code focused on LSTM model for weekly bed capacity
 ├── OBGYN.pdf                            # pdf of Python code focused on EDA and model building for Ronald Reagan's OB/GYN department
