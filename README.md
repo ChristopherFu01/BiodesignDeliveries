@@ -32,9 +32,9 @@
 This project focuses on analyzing and forecasting bed capacity in the delivery ward of the OB/GYN department at Ronald Reagan Medical Center. By examining data from early 2022 through September 2024, we aim to provide actionable insights to enhance patient flow and optimize operational efficiency at UCLA Health, specifically to our stakeholder Scott Jahnke, Director of Operations.
 
 Key Objectives:
-- Perform exploratory data analysis (EDA) to uncover trends and patterns in bed usage within the delivery ward.
-- Develop a robust time series forecasting model to predict bed capacity needs for the next few months.
-- Utilize these predictions to support decision-making and improve resource allocation, thereby streamlining patient flow in the delivery ward.
+1. Perform exploratory data analysis (EDA) to uncover trends and patterns in bed usage within the delivery ward.
+2. Develop a robust time series forecasting model to predict bed capacity needs for the next few months.
+3. Utilize these predictions to support decision-making and improve resource allocation, thereby streamlining patient flow in the delivery ward.
   
 Scope:
 The analysis includes data on admission time, bed logistics, and other relevant factors impacting bed availability. A Random Forest model is applied to evaluate the relationship between key features, such as total admissions, and weekly bed capacity. An LSTM model is deployed to forecast delivery volumes, with the training data spanning the years 2022 and 2023; the model is then used to predict delivery outcomes from the beginning of 2024 through September 2024, allowing for a comparison with actual 2024 data.
@@ -86,13 +86,74 @@ The dataset contains anonymized records related to weekly hospital admissions an
 
 ### Data Structure
 
+Due to privacy constraints, there will not be any photos shown of the data as it appears in Azure Data Studio. However, to describe what it may appear to look like in the software, the DDR comprises of many different sets of tables, usually with the prefix CDM (Clinical Data Management) or DIM (Dimensional Table). The majority of the columns would comprise of an identifier such as the Patient ID or Encounter/Event ID, temporal data including the time a patient was admitted and discharged from the hospital, and unique information pertaining to the subject of that table (e.g. OB/GYN table would contain information about bed logistics such as bed name and group).
+
 ### Feature Descriptions
 
+**Independent Variables**
+1. Temporal Factors
+- Time of day
+- Day of week
+- Season
+- Holiday periods
+
+2. Clinical Characteristics
+- Delivery method (vaginal, cesarean)
+- Anesthesia requirements
+- Multiple births
+- Patient obstetric history
+
+3. Operational Factors
+- Department occupancy
+- Concurrent deliveries
+- Staff availability periods
+
+**Dependent Variables**
+1. Resource Utilization
+- Bed occupancy rates
+- Length of stay (hospital discharge time - hospital admission time)
+- Room turnover times
+
+2. Capacity Metrics 
+- Peak occupancy periods
+- Resource bottlenecks
+- Department-specific utilization
+
+
 ## Objective
+
+Key Objectives:
+1. Perform exploratory data analysis (EDA) to uncover trends and patterns in bed usage within the delivery ward.
+   - Our EDA comprises of bar graphs and line plots of bed usage by week and by department, deliveries by hour of the day and day of the week, and weekly bed capacity.
+2. Develop a robust time series forecasting model to predict bed capacity needs for the next few months.
+  - We would accomplish this by creating an LSTM model trained on 2022-2023 data to predict trends for 2024, and using the actual 2024 data for comparison in order to evaluate its accuracy prior to deployment.
+3. Utilize these predictions to support decision-making and improve resource allocation, thereby streamlining patient flow in the delivery ward.
 
 ## Methodology
 
 ### Data Preprocessing
+
+Data for this study were extracted from the Deidentified Data Repository (DDR) within UCLA Health’s Electronic Health Record (EHR). The data warehouse schema consists of ‘fact’ tables containing transactional data (encounters, deliveries, procedures, etc.) and ‘dim’ tables containing descriptive attributes (departments, dates, categorical lookups, etc.). All protected health information was removed prior to analysis, and the study was conducted in accordance with UCLA Office of Health Information & Analytics (OHIA) data governance policies. The study pool included all deliveries in the Ronald Reagan Medical Center’s primary delivery ward (‘RR 5DR’) from January 1st, 2022 to September 1st, 2024. 
+
+
+Fig. 1: Data representation in Python
+
+We developed a comprehensive SQL query in Azure Data Studio, integrating multiple EHR tables to create an analytical dataset. Key data elements were sourced from:
+
+- Encounter records (patient visits, admissions)
+   - ClinicalDM > rpt > CDM_EncounterFact
+   - ClinicalDM > rpt > CDM_EpisodeFact
+- Delivery episodes (labor progression, delivery methods)
+   - ClinicalDM > rpt > CDM_DeliveryEpisodeFact
+- Department and bed utilization records
+   - ClinicalDM > rpt > DIM_DepartmentDim
+   - ClinicalDM > rpt > DIM_DateDim
+- Patient obstetric histories
+   - ClinicalDM > rpt > CDM_OBHistoryEpisodeCountsFact
+- Temporal attributes (dates, times, seasons)
+   - DeliveryDate BETWEEN ‘2022-01-01’ AND ‘2024-09-01’
+
+The resulting dataset included timestamps for patient flow (admission, delivery, discharge), clinical characteristics (delivery method, anesthesia type), facility utilization metrics (bed assignments, department locations), and historical risk factors (previous pregnancies, outcomes).
 
 ### Exploratory Data Analysis (EDA)
 
@@ -131,6 +192,8 @@ The overall utility of a capacity model lies in its ability to assist in operati
 - **Data Accessibility**: Due to HIPAA and privacy regulations set by UCLA Health, raw data, scripts, and notebooks could not be exported. There are still screenshots of the data structure and code available for observation.
 
 - **Data Complexity**: Due to the intricate relationships between variables and possible confounding factors, models tended to overfit and consequently overperform, leading to inaccurate predictions.
+
+- **Scope Changes**: Due to time constraints and problem restructuring, there were revisions to our project that resulted in some EDA and model building being excluded. Most notably, check out the OBGYN.pdf in the project folder to see insights that were not included in the final report.
 
 ## Dependencies
 
