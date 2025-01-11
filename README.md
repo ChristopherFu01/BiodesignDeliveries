@@ -1,4 +1,4 @@
-# Bed Capacity Data Analysis for Ronald Reagan Medical Center from early 2022 to September 2024
+# Bed Capacity Data Analysis for Ronald Reagan Medical Center from Q1 2022 to Q3 2024
 
 ## Table of Contents
 
@@ -28,7 +28,22 @@
 
 ## Project Overview
 
-TO-DO
+This project focuses on analyzing and forecasting bed capacity in the delivery ward of the OB/GYN department at Ronald Reagan Medical Center. By examining data from early 2022 through September 2024, we aim to provide actionable insights to enhance patient flow and optimize operational efficiency at UCLA Health, specifically to our stakeholder Scott Jahnke, Director of Operations.
+
+Key Objectives:
+- Perform exploratory data analysis (EDA) to uncover trends and patterns in bed usage within the delivery ward.
+- Develop a robust time series forecasting model to predict bed capacity needs for the next few months.
+- Utilize these predictions to support decision-making and improve resource allocation, thereby streamlining patient flow in the delivery ward.
+  
+Scope:
+The analysis includes data on admission time, bed logistics, and other relevant factors impacting bed availability. A Random Forest model is applied to evaluate the relationship between key features, such as total admissions, and weekly bed capacity. An LSTM model is deployed to forecast delivery volumes, with the training data spanning the years 2022 and 2023; the model is then used to predict delivery outcomes from the beginning of 2024 through September 2024, allowing for a comparison with actual 2024 data.
+
+Impact:
+This project serves as a strategic tool for the OB/GYN department and UCLA Health's operations team to:
+
+- Mitigate overcrowding risks, especially in the case of deliveries where the health of the baby and mother are crucial.
+- Ensure smoother patient flow, reducing costs and increasing successful deliveries.
+- Enhance overall service delivery for expectant mothers.
 
 ## Motivation
 
