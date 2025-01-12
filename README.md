@@ -326,9 +326,9 @@ BiodesignDeliveries/
 |   ├── Deliveries Day of Week.png       # Deliveries separated by the day of the week
 |   ├── Deliveries Hour of Day.png       # Deliveries sorted by hour of the day
 |   ├── Descriptive Statistics.png       # Descriptive Statistics of the variables of interest for OB/GYN Deliveries
+|   ├── LSTM.png                         # Line plots of Weekly Capacity, the orange line being the LSTM predicted trend and the blue being actual trends
 |   ├── Weekly Bed Usage Line Plot.png   # Line plot of the weekly bed usage separated by year (2022-2024)
-|   ├── Weekly OB Capacity.png           # Line plot of the weekly bed capacity, with tick marks denoting the week of the year
-|   └── LSTM.png                         # Line plots of Weekly Capacity, the orange line being the LSTM predicted trend and the blue being actual trends
+|   └── Weekly OB Capacity.png           # Line plot of the weekly bed capacity, with tick marks denoting the week of the year
 |
 ├── code/                                # Folder containing all code related files
 |   ├── Delivery.pdf                     # PDF of Python code focused on EDA and model building in the delivery ward
