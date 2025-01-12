@@ -17,17 +17,14 @@
       - [Model Methodology](#model-methodology)
       - [Model Development](#model-development)  
       - [Model Evaluation](#model-evaluation)  
-7. [Results](#results)  
-   - [Key Findings](#key-findings)  
-   - [Performance Metrics](#performance-metrics)  
-8. [Conclusion](#conclusion)  
+7. [Conclusion](#conclusion)  
    - [Insights](#insights)  
    - [Other Notes](#other-notes)
    - [Miscellaneous](#miscellaneous)
-9. [Dependencies](#dependencies)  
-10. [Project Structure](#project-structure)
-11. [References](#references)
-12. [Contact Information](#contact-information)  
+8. [Dependencies](#dependencies)  
+9. [Project Structure](#project-structure)
+10. [References](#references)
+11. [Contact Information](#contact-information)  
 
 ## Project Overview
 
