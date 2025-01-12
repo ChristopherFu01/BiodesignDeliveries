@@ -12,9 +12,11 @@
 5. [Objective](#objective)  
 6. [Methodology](#methodology)  
    - [Data Preprocessing](#data-preprocessing)  
-   - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)  
-   - [Model Development](#model-development)  
-   - [Model Evaluation](#model-evaluation)  
+   - [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+   - [Model](#model)
+      - [Model Methodology](#model-methodology)
+      - [Model Development](#model-development)  
+      - [Model Evaluation](#model-evaluation)  
 7. [Results](#results)  
    - [Key Findings](#key-findings)  
    - [Performance Metrics](#performance-metrics)  
@@ -45,6 +47,16 @@ This project serves as a strategic tool for the OB/GYN department and UCLA Healt
 - Mitigate overcrowding risks, especially in the case of deliveries where the health of the baby and mother are crucial.
 - Ensure smoother patient flow, reducing costs and increasing successful deliveries.
 - Enhance overall service delivery for expectant mothers.
+
+Results:
+The results can be summarized by the following descriptions:
+
+- About 7 deliveries happened per day, with length of stays averaging around 70 days; the delivery ward would have around 24 patients concurrently; labor duration would last on average 20 hours
+- Based on EDA, some departments such as 5FDU IOF and Perioperative Area were at maximum bed capacity as opposed to others such as 5EOB and 5DR; resources would need to be allocated more to those departments at maximum capacity
+- Bed Usage in 2024 exhibited extreme downward trends as opposed to 2022 and 2023; although these results could be due to data incompleteness, the result could imply other issues occurring at Ronald Reagan Medical Center for this atypical trajectory.
+- Deliveries seem to occur more often towards the afternoon and evening hours (i.e. 2pm-8pm) as opposed to midnight and morning hours. More staff would need to be present to account for this spike in deliveries.
+- The number of deliveries by day of the week seemed negligible; in other words, the deliveries by one day would be comparable to that of the next or previous day.
+- The LSTM model, although capturing the general behavior of actual 2024 data, failed to match the peaks and troughs as reflected by the evaluation metrics of a RMSE of 17.69 and a MAE of 14.91; more hyperparameter tuning would be required to fix the accuracy of the model prior to deployment for predicting 2025 trends.
 
 Recommendations:
 Finetuning the LSTM model further is required in order for a proper deployment and application in operational planning and resource allocation within the hospital. Next steps would be the following:
@@ -138,7 +150,7 @@ Data for this study were extracted from the Deidentified Data Repository (DDR) w
 
 ![Fig.1](images/Dataset.png)
 
-**Fig.1: Data Representation in Jupyter Notebook**
+**Fig 1: Data Representation in Jupyter Notebook**
 
 We developed a comprehensive SQL query in Azure Data Studio, integrating multiple EHR tables to create an analytical dataset. Key data elements were sourced from:
 
@@ -167,7 +179,7 @@ There were 7,386 deliveries in our study cohort across five departments in the R
 
 ![Fig.2](images/Avg%20Bed%20Usage%20by%20Dept.png)
 
-**Fig.2: Average Bed Usage by Department within Ronald Reagan Obstetrics.** Figure was created by running summary statistics, specifically the mean of ‘BedInCensus’ grouped by department. Departments RR 5FDU and RR PERIOPERATIVE AREA were at maximum average bed usage, whereas departments RR 5EOB and RR 5DR were between 80% and 100% average bed usage. Knowing which departments are at full capacity can provide insight for operations to redirect resources (i.e. staff, beds) to accommodate high usage in those areas.
+**Fig 2: Average Bed Usage by Department within Ronald Reagan Obstetrics.** Figure was created by running summary statistics, specifically the mean of ‘BedInCensus’ grouped by department. Departments RR 5FDU and RR PERIOPERATIVE AREA were at maximum average bed usage, whereas departments RR 5EOB and RR 5DR were between 80% and 100% average bed usage. Knowing which departments are at full capacity can provide insight for operations to redirect resources (i.e. staff, beds) to accommodate high usage in those areas.
 
 ![Fig.3](images/Weekly%20Bed%20Usage%20Line%20Plot.png)
 
@@ -186,7 +198,6 @@ There were 7,386 deliveries in our study cohort across five departments in the R
 
 **Fig.6: Weekly capacity readout of Ronald Reagan Obstetrics Department.** Time period for analysis is defined from January 3, 2022 to September 1, 2024. Capacity of the obstetrics unit is defined as the median number of patients occupying beds per day for a given week. Weekly capacity ranges from 1-90 patients per day.
 
-
 The dataset used for modeling spanned a period of approximately 2 years, with a test period of 9 months. During EDA, trends and seasonality in patient admissions were observed, highlighting the suitability of an LSTM model for capturing temporal dependencies and patterns. The capacity data were normalized to a range of [0, 1] to enhance model performance and ensure stable training.
 
 For additional EDA findings, refer to the jupyter notebooks in the github repository:
@@ -194,15 +205,77 @@ For additional EDA findings, refer to the jupyter notebooks in the github reposi
 - [LSTM](code/LSTM.pdf)
 - [OB/GYN](code/OBGYN.pdf)
 
-### Model Development
+### Model 
 
-### Model Evaluation
+#### Model Methodology
 
-## Results
+For the purpose of this study, weekly capacity was operationalized as the median number of patients
+admitted per day within a week. This metric was chosen due to its resilience against the influence of
+extreme values, which are common in healthcare datasets.
 
-### Key Findings
+The forecasting model used in this study was a Long Short-Term Memory (LSTM) network, a type of
+recurrent neural network (RNN) designed to capture sequential dependencies and temporal patterns in
+time-series data. LSTMs have demonstrated exceptional performance in applications requiring the
+modeling of long-term dependencies, such as hospital bed capacity forecasting and patient admission
+trends, as shown in recent works.10, 11
 
-### Performance Metrics
+LSTMs use a gating mechanism to regulate the flow of information through the network, addressing the
+vanishing gradient problem typically encountered in traditional RNNs. This architecture allows the
+network to effectively learn from long sequences, making it particularly well-suited for healthcare
+forecasting tasks where historical data significantly influences future outcomes.
+
+In this study, the LSTM model was configured to use weekly patient admissions as input, with a lookback
+window of two weeks. The lookback window size was determined through experimentation, as detailed in
+the Results section. The input sequences were fed into the LSTM layers, which extracted temporal
+features and passed them to fully connected layers for capacity prediction. Hyperparameters, including the
+number of epochs, batch size, and learning rate, were optimized using GridSearchCV to minimize
+validation error.
+
+The model was trained on two years of data and tested on a nine-month holdout set. The model utilized
+data only up to September 2024 due to concerns about data completeness and reporting lag, ensuring the
+reliability of performance metrics. Model performance was evaluated using Root Mean Squared Error
+(RMSE) and Mean Absolute Error (MAE). These metrics provided insight into the magnitude and
+consistency of prediction errors, reflecting the model’s suitability for deployment.
+
+#### Model Development
+
+A key hyperparameter in the model was the lookback window, representing the number of prior weeks
+used as input for predicting future capacity. A range of 1 to 10 weeks was evaluated, with a lookback
+window of 2 weeks yielding optimal performance. This was determined by comparing validation errors
+during initial experiments, confirming that a shorter lookback window effectively captured relevant
+temporal dependencies without overfitting.
+
+The LSTM network was designed to process sequential input data with two layers of LSTM units
+followed by fully connected layers. The model was trained using the Adam optimizer, with the mean
+absolute error (MAE) as the loss function. Hyperparameter optimization was conducted for the number of
+epochs and batch size using a grid search approach:
+
+- **Epochs:** Evaluated within the range of 10 to 100.
+- **Batch Size:** Evaluated within the range of 8 to 64.
+- **Learning rate:** Evaluated within the range of 0.001 to 0.01.
+
+GridSearchCV was implemented to identify the combination of these parameters that minimized
+validation loss. The optimal configuration was determined to be a learning rate of 0.005, 50 epochs, and a
+batch size of 8.
+
+#### Model Evaluation
+
+The final LSTM model was assessed using Root Mean Squared Error (RMSE) and Mean Absolute Error
+(MAE) as metrics:
+
+- **RMSE: 17.69**
+- **MAE: 14.91**
+
+![Fig.7](images/LSTM.png)
+**Fig 7: Actual vs. predicted weekly capacity of Ronald Reagan Obstetrics Department using
+Long-Short Term Memory model.** The training set is defined by the period from January 3, 2022 to
+December 31, 2023, and the testing set is defined by the period between January 1 to August 31 of 2024.
+
+The Root Mean Squared Error (RMSE) for the model performance on the test set is 17.69, and the Mean
+Absolute Error is 14.71. These results indicate that the model captures the variability in weekly capacity.
+The RMSE value reflects the magnitude of prediction errors, while the MAE provides a straightforward
+measure of average error. Both metrics underscore the model’s effectiveness in forecasting capacity trends
+within the OBGYN ward.
 
 ## Conclusion
 
@@ -257,7 +330,8 @@ BiodesignDeliveries/
 |   ├── Deliveries Hour of Day.png       # Deliveries sorted by hour of the day
 |   ├── Descriptive Statistics.png       # Descriptive Statistics of the variables of interest for OB/GYN Deliveries
 |   ├── Weekly Bed Usage Line Plot.png   # Line plot of the weekly bed usage separated by year (2022-2024)
-|   └──  Weekly OB Capacity.png          # Line plot of the weekly bed capacity, with tick marks denoting the week of the year
+|   ├── Weekly OB Capacity.png           # Line plot of the weekly bed capacity, with tick marks denoting the week of the year
+|   └── LSTM.png                         # Line plots of Weekly Capacity, the orange line being the LSTM predicted trend and the blue being actual trends
 |
 ├── code/                                # Folder containing all code related files
 |   ├── Delivery.pdf                     # PDF of Python code focused on EDA and model building in the delivery ward
