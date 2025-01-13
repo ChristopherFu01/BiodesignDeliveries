@@ -302,7 +302,7 @@ The overall utility of a capacity model lies in its ability to assist in operati
 
 ### Miscellaneous 
 
-If you are curious to view my team's report in a more visual and succint manner, check out the presentation we delivered together at the In-Person MSDSB/Biodesign Event at UCLA! [Presentation](Patient%20Flow%20Plan%20Presentation.pdf)
+If you are curious to view my team's report in a more visual and succint manner, check out the [presentation](Patient%20Flow%20Plan%20Presentation.pdf) we delivered together at the In-Person MSDSB/Biodesign Event at UCLA!
 
 ## Dependencies
 
