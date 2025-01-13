@@ -65,7 +65,7 @@ Finetuning the LSTM model further is required in order for a proper deployment a
 
 ### Team Acknowledgments
 
-I would like to extend my gratitude to everyone who contribued to this project:
+I would like to extend my gratitude to everyone who contributed to this project:
 
 - Courtney Rauchman
 - Adi Pillai
