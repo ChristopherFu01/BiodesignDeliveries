@@ -320,6 +320,12 @@ If you are curious to view my team's report in a more visual and succint manner,
 ```plaintext
 BiodesignDeliveries/
 |
+├── code/                                # Folder containing all code related files
+|   ├── Delivery.pdf                     # PDF of Python code focused on EDA and model building in the delivery ward
+|   ├── LSTM.pdf                         # PDF of Python code focused on LSTM model for weekly bed capacity
+|   ├── OBGYN.pdf                        # PDF of Python code focused on EDA and model building for Ronald Reagan's OB/GYN department
+|   └── SQL Query for OB Delivery.png    # Picture of query for assembling dataset in Azure Data Studio
+|
 ├── images/                              # Folder containing all relevant images of EDA and model results
 |   ├── Avg Bed Usage by Dept.png        # Bar Plot of Average Bed Usage by Department of Ronald Reagan Medical Center for OB/GYN Delivieres
 |   ├── Dataset.png                      # Jupyter Notebook Python Pandas representation of the dataset
@@ -329,12 +335,6 @@ BiodesignDeliveries/
 |   ├── LSTM.png                         # Line plots of Weekly Capacity, the orange line being the LSTM predicted trend and the blue being actual trends
 |   ├── Weekly Bed Usage Line Plot.png   # Line plot of the weekly bed usage separated by year (2022-2024)
 |   └── Weekly OB Capacity.png           # Line plot of the weekly bed capacity, with tick marks denoting the week of the year
-|
-├── code/                                # Folder containing all code related files
-|   ├── Delivery.pdf                     # PDF of Python code focused on EDA and model building in the delivery ward
-|   ├── LSTM.pdf                         # PDF of Python code focused on LSTM model for weekly bed capacity
-|   ├── OBGYN.pdf                        # PDF of Python code focused on EDA and model building for Ronald Reagan's OB/GYN department
-|   └── SQL Query for OB Delivery.png    # Picture of query for assembling dataset in Azure Data Studio
 |
 ├── LICENSE                              # License information
 ├── Patient Flow Plan Presentation.pdf   # PDF of presentation shown In-Person MSDSB/Biodesign Event at UCLA
