@@ -97,7 +97,7 @@ The dataset contains anonymized records related to weekly hospital admissions an
 
 Due to privacy constraints, there will not be any photos shown of the data as it appears in Azure Data Studio. However, to describe what it may appear to look like in the software, the DDR comprises of many different sets of tables, usually with the prefix CDM (Clinical Data Management) or DIM (Dimensional Table). The majority of the columns would comprise of an identifier such as the Patient ID or Encounter/Event ID, temporal data including the time a patient was admitted and discharged from the hospital, and unique information pertaining to the subject of that table (e.g. OB/GYN table would contain information about bed logistics such as bed name and group).
 
-If you are curious to see what the SQL query looks like when querying the dataset for analysis, see the image of the code [here](code/SQL%20Query%20for%20OB%20Delivery.png).
+If you are curious to see what the SQL query looks like when querying the dataset for analysis, see the image of the [SQL code here](code/SQL%20Query%20for%20OB%20Delivery.png).
 
 ### Feature Descriptions
 
