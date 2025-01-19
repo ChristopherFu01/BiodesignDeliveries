@@ -36,7 +36,7 @@ Key Objectives:
 3. Utilize these predictions to support decision-making and improve resource allocation, thereby streamlining patient flow in the delivery ward.
   
 Scope:
-The analysis includes data on admission time, bed logistics, and other relevant factors impacting bed availability. A Random Forest model is applied to evaluate the relationship between key features, such as total admissions, and weekly bed capacity. An LSTM model is deployed to forecast delivery volumes, with the training data spanning the years 2022 and 2023; the model is then used to predict delivery outcomes from the beginning of 2024 through September 2024, allowing for a comparison with actual 2024 data.
+The analysis includes data on admission time, bed logistics, and other relevant factors impacting bed availability. An LSTM model is deployed to forecast delivery volumes, with the training data spanning the years 2022 and 2023; the model is then used to predict delivery outcomes from the beginning of 2024 through September 2024, allowing for a comparison with actual 2024 data.
 
 Impact:
 This project serves as a strategic tool for the OB/GYN department and UCLA Health's operations team to:
